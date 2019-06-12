@@ -1,0 +1,48 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.atmecshyd</groupId>
+  <artifactId>Profile</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  
+  
+   <build>
+<resources>
+<resource>
+<directory>src/main/resources</directory>
+<filtering>true</filtering>
+</resource>
+</resources>
+</build>
+
+<profiles>
+<profile>
+<id>Dev_phase1</id>
+<build>
+<finalName>${project.artifactId}-Dev_phase1</finalName>
+<filters>
+<filter>src/main/resources/Process/Dev_phase1.properties</filter>
+</filters>
+</build>
+</profile>
+<profile>
+<id>Test_phase1</id>
+<build>
+<finalName>${project.artifactId}-Test_phase1</finalName>
+<filters>
+<filter>src/main/resources/Process/Test_phase1.properties</filter>
+</filters>
+</build>
+</profile>
+</profiles>
+<distributionManagement>
+<repository>
+<uniqueVersion>false</uniqueVersion>
+<id>demo</id>
+<name>demo</name>
+<url>http://localhost:8081/repository/demo/</url>
+<layout>default</layout>
+</repository>
+
+</distributionManagement>
+
+</project>
